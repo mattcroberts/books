@@ -9,7 +9,10 @@ export class BookContainer extends React.Component {
         this.props.fetchBooks();
     }
     render() {
-        console.log("!!", this.props);
+        if (!this.props.loaded) {
+            return "Loading...";
+        }
+
         return <BookList books={this.props.books} />;
     }
 }
@@ -19,6 +22,7 @@ BookContainer.defaultProps = {
 };
 
 export const mapStateToProps = state => ({
+    loaded: state.books ? state.books.loaded : false,
     books: state.books ? state.books.books : undefined
 });
 export const mapDispatchToProps = { fetchBooks };

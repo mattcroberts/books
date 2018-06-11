@@ -19,6 +19,8 @@ const bookResp = Object.assign({}, rawData, {
 const router = new Router();
 
 router.get("/", (req, res, next) => {
-    res.json(bookResp);
+    setTimeout(() => {
+        res.json(bookResp);
+    }, 5000);
 });
 export default router;
