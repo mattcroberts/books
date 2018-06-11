@@ -1,8 +1,11 @@
 import axios from "axios";
 
-const booksFetchStarted = () => {
+const booksFetchStarted = filter => {
     return {
-        type: "BOOKS/FETCH_STARTED"
+        type: "BOOKS/FETCH_STARTED",
+        payload: {
+            filter
+        }
     };
 };
 
@@ -20,10 +23,14 @@ const booksFetchError = err => {
     };
 };
 
-const fetchBooks = () => dispatch => {
-    dispatch(booksFetchStarted());
+const fetchBooks = filter => dispatch => {
+    dispatch(booksFetchStarted(filter));
     axios
-        .get("http://localhost:3000/books")
+        .get("http://localhost:3000/books", {
+            params: {
+                filter: filter
+            }
+        })
         .then(resp => dispatch(booksFetchFinished(resp.data)))
         .catch(err => {
             console.error(err);
