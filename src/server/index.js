@@ -3,12 +3,13 @@ import React from "React";
 import { renderToString } from "react-dom/server";
 import { join } from "path";
 
+import bookResp from "./data/data.json";
 import App from "../shared/components/App";
 
 const app = express();
 app.set("views", join(__dirname, "./views"));
 app.get("/books", (req, res, next) => {
-    res.json({});
+    res.json(bookResp);
 });
 app.get("*", (req, res, next) => {
     // render react
