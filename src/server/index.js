@@ -3,22 +3,35 @@ import React from "react";
 import { renderToString } from "react-dom/server";
 import { join } from "path";
 import ejs from "ejs";
+import { Provider } from "react-redux";
 
-import bookResp from "./data/data.json";
+import booksRouter from "./routes/books";
+
 import App from "../shared/components/App";
 
-let manifest = null;
+const store = {
+    getState() {
+        return {};
+    }
+};
 
 const app = express();
 app.engine("ejs", ejs.renderFile);
 app.set("views", join(__dirname, "./views"));
-app.get("/books", (req, res, next) => {
-    res.json(bookResp);
-});
+app.get("/books", booksRouter);
+
+app.use("/static", express.static(join(__dirname, "../../dist/client/")));
+
+app.use("/books", booksRouter);
+
 app.get("*", (req, res, next) => {
     res.render("index.ejs", {
-        bundle: "client.bundle.js",
-        app: renderToString(<App />)
+        bundle: "/static/client.bundle.js",
+        app: renderToString(
+            <Provider store={store}>
+                <App />
+            </Provider>
+        )
     });
 });
 

@@ -15,12 +15,9 @@ export default {
         extensions: ["*", ".js"]
     },
     output: {
-        path: __dirname + "/dist",
+        path: __dirname + "/dist/server",
         publicPath: "/",
         filename: "[name].bundle.js"
-    },
-    devServer: {
-        contentBase: "./dist/server"
     },
     target: "node"
 };

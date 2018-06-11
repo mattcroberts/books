@@ -1,4 +1,13 @@
 import ReactDOM from "react-dom";
-import App from "../shared/components/App";
+import React from "react";
+import { Provider } from "react-redux";
 
-ReactDOM.hydrate(<App />, document.getElementById("root"));
+import App from "../shared/components/App";
+import store from "../shared/store";
+
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById("root")
+);

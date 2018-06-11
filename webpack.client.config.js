@@ -1,9 +1,10 @@
-import ManifestPlugin from "webpack-manifest-plugin";
+// import ManifestPlugin from "webpack-manifest-plugin";
 
-export default {
+module.exports = {
     entry: {
         client: "./src/client/index.js"
     },
+    devtool: "eval-source-map",
     module: {
         rules: [
             {
@@ -18,8 +19,11 @@ export default {
     },
     output: {
         path: __dirname + "/dist/client",
-        publicPath: "/",
+        publicPath: "/static/",
         filename: "[name].bundle.js"
     },
-    plugins: [new ManifestPlugin()]
+    devServer: {
+        contentBase: "./dist/client"
+    }
+    // plugins: [new ManifestPlugin()]
 };

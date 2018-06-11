@@ -6,16 +6,20 @@
     "clean": "rimraf dist",
     "build": "npm run clean && webpack --mode production",
     "dev": "nodemon --require babel-register src/server/index.js",
-    "start": "NODE_ENV=PRODUCTION node dist/server.bundle.js",
+    "start": "NODE_ENV=PRODUCTION node dist/server/server.bundle.js",
     "test": "mocha --require babel-register test/setup.js src/**/*.test.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
     "react": "^16.4.0",
-    "react-dom": "^16.4.0"
+    "react-dom": "^16.4.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "autoprefixer": "^8.5.0",
