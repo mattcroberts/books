@@ -18,6 +18,7 @@ export default (state = defaultState, action) => {
                 loaded: true,
                 books: action.payload.results.map(result => ({
                     title: result.title,
+                    author: result.author,
                     description: result.description,
                     isbn10: result.isbns[0].isbn10,
                     isbn13: result.isbns[0].isbn13

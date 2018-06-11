@@ -8,6 +8,7 @@ const BookList = ({ books }) =>
             <Book
                 key={book.isbn10}
                 title={book.title}
+                author={book.author}
                 description={book.description || undefined}
             />
         );
