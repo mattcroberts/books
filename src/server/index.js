@@ -1,6 +1,9 @@
 import express from "express";
+import React from "React";
 import { renderToString } from "react-dom/server";
 import { join } from "path";
+
+import App from "../shared/components/App";
 
 const app = express();
 app.set("views", join(__dirname, "./views"));
@@ -10,7 +13,7 @@ app.get("/books", (req, res, next) => {
 app.get("*", (req, res, next) => {
     // render react
     res.render("index.ejs", {
-        app: "bam"
+        app: renderToString(<App />)
     });
 });
 
