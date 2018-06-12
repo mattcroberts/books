@@ -29,7 +29,7 @@ const filterBooks = (books, filter) => {
 };
 const router = new Router();
 
-router.get("/", (req, res, next) => {
+router.get("/", (req, res) => {
     const { filter } = req.query;
     // simulate slow connection
     setTimeout(() => {

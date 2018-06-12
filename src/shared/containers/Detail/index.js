@@ -19,9 +19,9 @@ export const mapStateToProps = (state, { match }) => {
 
     return book
         ? {
-              title: book.title,
-              ranksHistory: book.ranksHistory
-          }
+            title: book.title,
+            ranksHistory: book.ranksHistory
+        }
         : {};
 };
 

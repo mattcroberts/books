@@ -51,7 +51,7 @@ describe("Book reducer", () => {
                 "The author of the Outlander novels gives tips on writing sex scenes, drawing on examples from the books.",
             isbn10: "0399178570",
             isbn13: "9780399178573",
-            title: '"I GIVE YOU MY BODY ..."'
+            title: "\"I GIVE YOU MY BODY ...\""
         });
     });
 });

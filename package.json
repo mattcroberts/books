@@ -7,6 +7,7 @@
     "build": "npm run clean && webpack --mode production",
     "dev": "nodemon -e js,css,json -w ./src -x \"npm run build && npm start\"",
     "start": "NODE_ENV=PRODUCTION node dist/server/server.bundle.js",
+    "lint": "eslint src",
     "test": "mocha --require babel-register test/setup.js src/**/*.test.js"
   },
   "author": "",
@@ -37,6 +38,8 @@
     "css-loader": "^0.28.11",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.19.1",
+    "eslint-plugin-react": "^7.9.1",
     "jsdom": "^11.11.0",
     "mini-css-extract-plugin": "^0.4.0",
     "mocha": "^5.2.0",

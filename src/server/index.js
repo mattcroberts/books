@@ -24,7 +24,7 @@ app.use("/static", express.static(join(__dirname, "../../dist/client/")));
 
 app.use("/books", booksRouter);
 
-app.get("*", (req, res, next) => {
+app.get("*", (req, res) => {
     const context = {};
     res.render("index.ejs", {
         bundle: "/static/client.bundle.js",
