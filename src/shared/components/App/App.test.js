@@ -3,7 +3,7 @@ import { expect } from "chai";
 import { shallow } from "enzyme";
 import React from "react";
 
-import App from "./App";
+import App from "./index";
 
 describe("App", () => {
     it("should render", () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import BookContainer from "../containers/Book";
+import BookContainer from "../../containers/Book";
 
 const App = () => (
     <div>
