@@ -25,7 +25,8 @@ export default (state = defaultState, action) => {
                     author: result.author,
                     description: result.description,
                     isbn10: result.isbns[0].isbn10,
-                    isbn13: result.isbns[0].isbn13
+                    isbn13: result.isbns[0].isbn13,
+                    ranksHistory: result.ranks_history
                 }))
             });
     }
@@ -33,6 +34,7 @@ export default (state = defaultState, action) => {
 };
 
 export const getBookByIsbn10 = ({ books }, isbn10) => {
+    console.log(books);
     return books && books.books
         ? books.books.find(book => book.isbn10 === isbn10)
         : null;
