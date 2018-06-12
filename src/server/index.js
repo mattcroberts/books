@@ -28,6 +28,7 @@ app.get("*", (req, res, next) => {
     const context = {};
     res.render("index.ejs", {
         bundle: "/static/client.bundle.js",
+        styles: "/static/client.css",
         app: renderToString(
             <Provider store={store}>
                 <StaticRouter context={context} location={req.url}>

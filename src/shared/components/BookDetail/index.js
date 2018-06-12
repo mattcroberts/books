@@ -1,4 +1,5 @@
 import React from "react";
+import css from "./BookDetail.css";
 
 const BookDetail = ({ title, ranksHistory = [] }) => (
     <div>
@@ -18,7 +19,7 @@ const BookDetail = ({ title, ranksHistory = [] }) => (
                 asterisk,
                 dagger
             }) => (
-                <dl>
+                <dl className={css.rank}>
                     <dt>ISBN10</dt>
                     <dd>{primary_isbn10}</dd>
 

@@ -1,3 +1,5 @@
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+
 export default {
     entry: {
         server: "./src/server/index.js"
@@ -8,6 +10,16 @@ export default {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: ["babel-loader"]
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: "css-loader/locals",
+                        options: { modules: true, importLoaders: 1 }
+                    },
+                    "postcss-loader"
+                ]
             }
         ]
     },
@@ -19,5 +31,11 @@ export default {
         publicPath: "/",
         filename: "[name].bundle.js"
     },
-    target: "node"
+    target: "node",
+    plugins: [
+        new CopyWebpackPlugin([{ from: "src/server/views", to: "views" }])
+    ],
+    node: {
+        __dirname: true
+    }
 };
