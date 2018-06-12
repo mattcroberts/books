@@ -1,20 +1,23 @@
+import { actions } from "../../actions";
+
 const defaultState = {
     loaded: false,
     books: [],
     filter: ""
 };
+
 export default (state = defaultState, action) => {
     switch (action.type) {
-        case "BOOKS/FETCH_STARTED":
+        case actions.FETCH_STARTED:
             return Object.assign({}, state, {
                 loaded: false,
                 filter: action.payload.filter
             });
-        case "BOOKS/FETCH_ERROR":
+        case actions.FETCH_ERROR:
             return Object.assign({}, state, {
                 loaded: true
             });
-        case "BOOKS/FETCH_FINISHED":
+        case actions.FETCH_FINISHED:
             return Object.assign({}, state, {
                 loaded: true,
                 books: action.payload.results.map(result => ({
