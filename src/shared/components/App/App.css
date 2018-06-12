@@ -1,3 +1,11 @@
 .link {
     composes: link from "../../shared.css";
+    font-size: 14px;
+    color: blue;
+    padding-left: 20px;
+}
+
+.header {
+    width: 700px;
+    margin: 0 auto;
 }

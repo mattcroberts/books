@@ -2,7 +2,7 @@ import React from "react";
 import css from "./BookDetail.css";
 
 const BookDetail = ({ title, ranksHistory = [] }) => (
-    <div>
+    <div className={css.root}>
         <h2>{title}</h2>
 
         {ranksHistory.map(

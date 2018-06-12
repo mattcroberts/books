@@ -4,8 +4,9 @@ import { connect } from "react-redux";
 import { fetchBooks, filterBooks } from "../../../shared/actions";
 import BookList from "../../components/BookList";
 import BookControls from "../../components/BookControls";
+import Spinner from "../../components/Spinner";
 
-export class BookContainer extends React.Component {
+export class BookListContainer extends React.Component {
     constructor(props) {
         super(props);
         this.onFilter = this.onFilter.bind(this);
@@ -22,7 +23,7 @@ export class BookContainer extends React.Component {
 
     renderBookListOrLoading() {
         if (!this.props.loaded) {
-            return "Loading...";
+            return <Spinner />;
         }
 
         return <BookList books={this.props.books} />;
@@ -38,7 +39,7 @@ export class BookContainer extends React.Component {
     }
 }
 
-BookContainer.defaultProps = {
+BookListContainer.defaultProps = {
     books: []
 };
 
@@ -52,4 +53,4 @@ export const mapDispatchToProps = { fetchBooks, filterBooks };
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(BookContainer);
+)(BookListContainer);

@@ -1,4 +1,5 @@
 import React from "react";
+import css from "./BookControls.css";
 
 class BookControls extends React.Component {
     constructor(props) {
@@ -18,7 +19,7 @@ class BookControls extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.onSubmit}>
+            <form className={css.root} onSubmit={this.onSubmit}>
                 <input
                     name="filter"
                     placeholder="filter"

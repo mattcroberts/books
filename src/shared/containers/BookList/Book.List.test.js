@@ -3,14 +3,14 @@ import { expect } from "chai";
 import { shallow } from "enzyme";
 import React from "react";
 
-import { BookContainer } from "./index";
+import { BookListContainer } from "./index";
 
-describe("Book Container", () => {
+describe("BookList Container", () => {
     const props = {
         fetchBooks: () => ({})
     };
 
     it("should render", () => {
-        shallow(<BookContainer {...props} />);
+        shallow(<BookListContainer {...props} />);
     });
 });

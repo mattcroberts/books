@@ -31,6 +31,7 @@ const router = new Router();
 
 router.get("/", (req, res, next) => {
     const { filter } = req.query;
+    // simulate slow connection
     setTimeout(() => {
         let resp = Object.assign({}, bookResp);
 
