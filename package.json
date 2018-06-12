@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "npm run clean && webpack --mode production",
+    "build": "npm run clean && webpack --mode development",
     "dev": "nodemon -e js,css,json -w ./src -x \"npm run build && npm start\"",
     "start": "NODE_ENV=PRODUCTION node dist/server/server.bundle.js",
     "lint": "eslint src",

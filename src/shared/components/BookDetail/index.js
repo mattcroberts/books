@@ -19,7 +19,7 @@ const BookDetail = ({ title, ranksHistory = [] }) => (
                 asterisk,
                 dagger
             }) => (
-                <dl className={css.rank}>
+                <dl key={`${primary_isbn10}`} className={css.rank}>
                     <dt>ISBN10</dt>
                     <dd>{primary_isbn10}</dd>
 

@@ -18,7 +18,9 @@ export class BookListContainer extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchBooks();
+        if (!this.props.loaded) {
+            this.props.fetchBooks();
+        }
     }
 
     renderBookListOrLoading() {

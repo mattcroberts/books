@@ -1,8 +1,7 @@
-// import ManifestPlugin from "webpack-manifest-plugin";
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import UglifyJsPlugin from "uglifyjs-webpack-plugin";
 
-module.exports = {
+export default {
     entry: {
         client: "./src/client/index.js"
     },
