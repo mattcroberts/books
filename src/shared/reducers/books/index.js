@@ -31,3 +31,9 @@ export default (state = defaultState, action) => {
     }
     return state;
 };
+
+export const getBookByIsbn10 = ({ books }, isbn10) => {
+    return books && books.books
+        ? books.books.find(book => book.isbn10 === isbn10)
+        : null;
+};

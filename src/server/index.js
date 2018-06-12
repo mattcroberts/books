@@ -4,6 +4,7 @@ import { renderToString } from "react-dom/server";
 import { join } from "path";
 import ejs from "ejs";
 import { Provider } from "react-redux";
+import { StaticRouter } from "react-router-dom";
 
 import booksRouter from "./routes/books";
 
@@ -25,11 +26,14 @@ app.use("/static", express.static(join(__dirname, "../../dist/client/")));
 app.use("/books", booksRouter);
 
 app.get("*", (req, res, next) => {
+    const context = {};
     res.render("index.ejs", {
         bundle: "/static/client.bundle.js",
         app: renderToString(
             <Provider store={store}>
-                <App />
+                <StaticRouter context={context} location={req.url}>
+                    <App />
+                </StaticRouter>
             </Provider>
         )
     });

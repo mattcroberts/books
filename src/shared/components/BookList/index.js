@@ -10,6 +10,7 @@ const BookList = ({ books }) =>
                 title={book.title}
                 author={book.auth}
                 description={book.description || undefined}
+                isbn10={book.isbn10}
             />
         );
     });
