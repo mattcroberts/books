@@ -1,11 +1,11 @@
 import { shallow } from "enzyme";
-import sinon from "sinon";
 import { expect } from "chai";
 import React from "react";
+import sinon from "sinon";
 
-import { BookListContainer } from "./index";
+import { DetailContainer } from "./index";
 
-describe("BookList Container", () => {
+describe("Detail Container", () => {
     const props = {
         fetchBooks: sinon.stub().returns({})
     };
@@ -15,11 +15,11 @@ describe("BookList Container", () => {
     });
 
     it("should render", () => {
-        shallow(<BookListContainer {...props} />);
+        shallow(<DetailContainer {...props} />);
     });
 
     it("should fetch data on mount", () => {
-        shallow(<BookListContainer {...props} />);
+        shallow(<DetailContainer {...props} />);
 
         expect(props.fetchBooks.callCount).to.equal(1);
     });
