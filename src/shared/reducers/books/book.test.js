@@ -45,13 +45,29 @@ describe("Book reducer", () => {
         const result = reducer(undefined, fetchFinished(data));
 
         expect(result).to.have.nested.property("books.length", 2);
+
         expect(result).to.have.deep.nested.property("books[0]", {
             author: "Diana Gabaldon",
             description:
                 "The author of the Outlander novels gives tips on writing sex scenes, drawing on examples from the books.",
             isbn10: "0399178570",
             isbn13: "9780399178573",
-            title: "\"I GIVE YOU MY BODY ...\""
+            title: "\"I GIVE YOU MY BODY ...\"",
+            ranksHistory: [
+                {
+                    asterisk: 0,
+                    bestsellers_date: "2016-08-20",
+                    dagger: 0,
+                    display_name: "Advice, How-To & Miscellaneous",
+                    list_name: "Advice How-To and Miscellaneous",
+                    primary_isbn10: "0399178570",
+                    primary_isbn13: "9780399178573",
+                    published_date: "2016-09-04",
+                    rank: 8,
+                    ranks_last_week: null,
+                    weeks_on_list: 1
+                }
+            ]
         });
     });
 });

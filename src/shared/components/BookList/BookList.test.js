@@ -1,6 +1,7 @@
 import { expect } from "chai";
 import { mount, shallow } from "enzyme";
 import React from "react";
+import { MemoryRouter } from "react-router-dom";
 
 import BookList from "./index";
 import Book from "../Book";
@@ -27,7 +28,11 @@ describe("BookList", () => {
     });
 
     it("should render all books in list", () => {
-        const component = mount(<BookList books={books} />);
+        const component = mount(
+            <MemoryRouter>
+                <BookList books={books} />
+            </MemoryRouter>
+        );
         expect(component.find(Book).length).to.equal(2);
     });
 });

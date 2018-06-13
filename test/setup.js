@@ -1,6 +1,9 @@
 import Enzyme from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import { JSDOM } from "jsdom";
+import cssHook from "css-modules-require-hook";
+
+cssHook({});
 
 Enzyme.configure({ adapter: new Adapter() });
 
