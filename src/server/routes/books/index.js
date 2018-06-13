@@ -17,7 +17,7 @@ const bookResp = Object.assign({}, rawData, {
     })
 });
 
-const filterBooks = (books, filter) => {
+export const filterBooks = (books, filter) => {
     return books.filter(book => {
         return (
             !filter ||
@@ -27,21 +27,20 @@ const filterBooks = (books, filter) => {
         );
     });
 };
+export const get = (req, res) => {
+    const { filter } = req.query;
+    let resp = Object.assign({}, bookResp);
+    
+    if (filter) {
+        Object.assign(resp, {
+            results: filterBooks(bookResp.results, filter.toLowerCase())
+        });
+    }
+
+    res.json(resp);
+};
+
 const router = new Router();
 
-router.get("/", (req, res) => {
-    const { filter } = req.query;
-    // simulate slow connection
-    setTimeout(() => {
-        let resp = Object.assign({}, bookResp);
-
-        if (filter) {
-            Object.assign(resp, {
-                results: filterBooks(bookResp.results, filter)
-            });
-        }
-
-        res.json(resp);
-    }, 1000);
-});
+router.get("/", get);
 export default router;
